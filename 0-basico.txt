@@ -1,0 +1,72 @@
+#################################################################################
+# Comandos basicos de git
+#################################################################################
+
+# identificar usuario del repositorio de git
+git config --global user.email "calderongz@gmail.com"
+git config --global user.name "Marco Iñiguez"
+
+# iniciar un repositorio de git
+git init
+
+# consultar el estado del repositorio de git
+git status
+
+# añadir archivos al el repositorio de git
+git add archivo.txt
+
+# añadir todos los archivos del repositorio
+git add . 
+
+# confirmar cambios en el repositorio de git (commit)
+git commit -m "Comandos basico de git" 
+
+# consultar commits
+git log
+
+# consultar commits en una sola linea
+git log --oneline
+
+commit f0d2018f28c62c43529b6a97e4d91a706c95a60f (HEAD -> master)
+Author: Marco Iñiguez <calderongz@gmail.com>
+Date:   Thu Mar 3 15:31:08 2022 -0500
+Añadido titulo al archivo
+
+commit be48cde7b52bec0c1e0f94e20386ed9a16aab742
+Author: Marco Iñiguez <calderongz@gmail.com>
+Date:   Thu Mar 3 15:25:49 2022 -0500
+Comandos basicos de git
+
+# para cambiar de una version de un archivo a otra
+git checkout be48c
+
+# volver a la ultima version
+git checkout master
+
+# deshacer cambios de un archivo para limpiar
+git reset be48 # Deshace commits sin modificar archivos
+git reset --hard be48 # Deshace commmits y modifica los archivos
+
+# restaurar un archivo si se borra
+git restore archivo.txt
+#################################################################################
+
+# Comandos de git para subir repositorios locales a github > https://github.com/
+
+# Se crea cuenta en github y su repositorio correspondiente
+
+# Se crea clave SSH para poder autenticarse a github > https://github.com/settings/keys
+ssh-keygen -t ed25519-sk -C "calderongz@gmail.com"
+
+# Se sube clave publica que se creo a github
+cat .ssh/id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsC2juljcdiYK4AscVkgY7doDyposFPEbswaTvFAkKJ calderongz@gmail.com
+
+# se adiciona servidor remoto del repositorio (SSH)
+git remote add origin git@github.com:calderongz/git.git
+
+# se consulta repositorio remoto SSH
+git remote -v
+
+# subir repositorio local a github
+git push -u origin mastere
