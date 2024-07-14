@@ -56,11 +56,11 @@ git restore archivo.txt
 # Se crea cuenta en github y su repositorio correspondiente
 
 # Se crea clave SSH para poder autenticarse a github > https://github.com/settings/keys
-ssh-keygen -t ed25519-sk -C "calderongz@gmail.com"
+ssh-keygen -t ed25519 -C "calderongz@gmail.com"
 
 # Se sube clave publica que se creo a github
-cat .ssh/id_ed25519.pub
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPsC2juljcdiYK4AscVkgY7doDyposFPEbswaTvFAkKJ calderongz@gmail.com
+cat .ssh/id_ed25519.pub 
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGA8ky2r+pGjMoVK+i8kJqaL6vZDY61POTVGc7LcQM4L calderongz@gmail.com
 
 # se adiciona servidor remoto del repositorio (SSH)
 git remote add origin git@github.com:calderongz/git.git
@@ -69,4 +69,13 @@ git remote add origin git@github.com:calderongz/git.git
 git remote -v
 
 # subir repositorio local a github
-git push -u origin mastere
+git push --set-upstream origin master
+git push -u origin master
+
+# clona repositorio, si pierdes los archivos.
+git clone git@github.com:calderongz/mastermind-git.git
+
+# adiciona llave publica de usuario a ssh-agente para que no solicite contraseña,
+# aplica solamente durante sesion activa.
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
