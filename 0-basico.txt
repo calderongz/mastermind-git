@@ -79,3 +79,12 @@ git clone git@github.com:calderongz/mastermind-git.git
 # aplica solamente durante sesion activa.
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+
+# Como crear y cambiar de rama
+git checkout -b 
+
+# listar ramas disponibles
+git branch
+
+# crear rama remota
+git push -u origin feature-post-styles
