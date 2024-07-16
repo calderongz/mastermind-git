@@ -86,5 +86,11 @@ git checkout -b
 # listar ramas disponibles
 git branch
 
-# crear rama remota
+# crear ramas en github
 git push -u origin feature-post-styles
+
+# crear ramas locales
+git checkout -b feature-adds
+
+# mezclar ramas locales
+git merge feature-load-adds-from-api
