@@ -24,9 +24,6 @@ git commit -m "Comandos basico de git"
 # consultar commits
 git log
 
-# consultar commits en una sola linea
-git log --oneline
-
 commit f0d2018f28c62c43529b6a97e4d91a706c95a60f (HEAD -> master)
 Author: Marco Iñiguez <calderongz@gmail.com>
 Date:   Thu Mar 3 15:31:08 2022 -0500
@@ -36,6 +33,9 @@ commit be48cde7b52bec0c1e0f94e20386ed9a16aab742
 Author: Marco Iñiguez <calderongz@gmail.com>
 Date:   Thu Mar 3 15:25:49 2022 -0500
 Comandos basicos de git
+
+# consultar commits en una sola linea
+git log --oneline --graph
 
 # para cambiar de una version de un archivo a otra
 git checkout be48c
@@ -49,13 +49,16 @@ git reset --hard be48 # Deshace commmits y modifica los archivos
 
 # restaurar un archivo si se borra
 git restore archivo.txt
+
+#################################################################################
+# Comandos de git para subir repositorios locales a github 
+# https://github.com/
 #################################################################################
 
-# Comandos de git para subir repositorios locales a github > https://github.com/
+# Se debe crear un cuenta en github y su repositorio correspondiente.
 
-# Se crea cuenta en github y su repositorio correspondiente
-
-# Se crea clave SSH para poder autenticarse a github > https://github.com/settings/keys
+# Se crea clave SSH para poder autenticarse a github
+# https://github.com/settings/keys
 ssh-keygen -t ed25519 -C "calderongz@gmail.com"
 
 # Se sube clave publica que se creo a github
@@ -80,17 +83,17 @@ git clone git@github.com:calderongz/mastermind-git.git
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 
-# Como crear y cambiar de rama
-git checkout -b 
+# Como crear y cambiar de ramas local
+git checkout -b feature-post-styles
 
 # listar ramas disponibles
 git branch
 
-# crear ramas en github
+# crear ramas remotas en github
 git push -u origin feature-post-styles
-
-# crear ramas locales
-git checkout -b feature-adds
 
 # mezclar ramas locales
 git merge feature-load-adds-from-api
+
+# descargar rama
+git pull origin bugfix-62-only-two-comments
