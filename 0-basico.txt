@@ -97,3 +97,23 @@ git merge feature-load-adds-from-api
 
 # descargar rama
 git pull origin bugfix-62-only-two-comments
+
+###########################################################################
+# Comandos para resolver conflictos 
+###########################################################################
+
+# 1. Clona o actualiza tu repositorio local con los ultimos cambios
+git pull origin master
+git clone git@github.com:calderongz/mastermind-git.git git-bug1
+
+# 2. Cambia la rama del pull request
+git checkout bugfix-6-only-three-comments
+
+# 3. Mezcla la rama base en la rama principal.
+git merge master
+
+# 4. Resuelve los conflictos y haz un commit de los resultados
+git commit -m "Fixed Bug # 6"
+
+# 5. Sube los cambios.
+git push -u origin bugfix-6-only-three-comments
