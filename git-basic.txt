@@ -63,7 +63,6 @@ ssh-keygen -t ed25519 -C "calderongz@gmail.com"
 
 # Se sube clave publica que se creo a github
 cat .ssh/id_ed25519.pub 
-ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGA8ky2r+pGjMoVK+i8kJqaL6vZDY61POTVGc7LcQM4L calderongz@gmail.com
 
 # se adiciona servidor remoto del repositorio (SSH)
 git remote add origin git@github.com:calderongz/git.git
@@ -103,17 +102,17 @@ git pull origin bugfix-62-only-two-comments
 ###########################################################################
 
 # 1. Clona o actualiza tu repositorio local con los ultimos cambios
-git pull origin master
-git clone git@github.com:calderongz/mastermind-git.git git-bug1
+# git clone git@github.com:calderongz/mastermind-git.git git-bug1
+git checkout master
+git pull
 
-# 2. Cambia la rama del pull request
-git checkout bugfix-6-only-three-comments
+# 2. Mezcla la rama base en la rama principal.
+git merge bugfix-6-only-three-comments
 
-# 3. Mezcla la rama base en la rama principal.
-git merge master
-
-# 4. Resuelve los conflictos y haz un commit de los resultados
-git commit -m "Fixed Bug # 6"
+# 3. Resuelve los conflictos y haz un commit de los resultados
+git add .
+git commit -m "Merge pull request #6 bugfix-6-only-three-comments"
 
 # 5. Sube los cambios.
-git push -u origin bugfix-6-only-three-comments
+git push
+###########################################################################
